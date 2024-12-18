@@ -1,5 +1,9 @@
 import React from 'react';
 import { Box, Container, Typography } from '@mui/material';
+import Card from '@mui/joy/Card';
+import CardCover from '@mui/joy/CardCover';
+import CardContent from '@mui/joy/CardContent';
+import LocationOnRoundedIcon from '@mui/icons-material/LocationOnRounded';
 
 const DemoVideo = () => {
   return (
@@ -19,7 +23,7 @@ const DemoVideo = () => {
           left: 0,
           width: '100%',
           height: '100%',
-          background: 'linear-gradient(135deg, rgba(255, 87, 34, 0.8), rgba(33, 150, 243, 0.8))',
+          background: 'linear-gradient(135deg, rgba(255, 215, 0, 0.8), rgba(0, 0, 0, 1))',
           zIndex: 1,
           pointerEvents: 'none',
         }}
@@ -80,6 +84,35 @@ const DemoVideo = () => {
           >
             See how our product works in action. This demo highlights the core features and functionality!
           </Typography>
+          
+          {/* Gradient Card Overlay on Video */}
+          <Card sx={{ minHeight: '280px', width: 320, position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+            <CardCover>
+              <img
+                src="https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320"
+                srcSet="https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320&dpr=2 2x"
+                loading="lazy"
+                alt=""
+              />
+            </CardCover>
+            <CardCover
+              sx={{
+                background:
+                  'linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0) 200px), linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 300px)',
+              }}
+            />
+            <CardContent sx={{ justifyContent: 'flex-end' }}>
+              <Typography level="title-lg" textColor="#fff">
+                Demo Location
+              </Typography>
+              <Typography
+                startDecorator={<LocationOnRoundedIcon />}
+                textColor="neutral.300"
+              >
+                Location, Country
+              </Typography>
+            </CardContent>
+          </Card>
         </Box>
       </Container>
     </Box>
